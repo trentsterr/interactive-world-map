@@ -1,0 +1,46 @@
+<div class="header">
+    <h2><u>Trent Abell - D280 Interactive World Map</u></h2>
+    <br />
+    <br />
+  </div>
+  <div class="map-layout">
+    <div class="map-container">
+    <object type="image/svg+xml" data="assets/map-image.svg" class="svg-map"></object>
+      <div *ngIf="loading" class="loading-overlay">Loading countries...</div>
+    </div>
+    
+    <div class="country-info">
+      <h2>Country Information</h2>
+      <div *ngIf="error" class="error-message">
+        {{ error }}
+      </div>
+      <div *ngIf="!selectedCountry && !loading && !error">
+        <p>Select a country on the map to view details.</p>
+      </div>
+      <div *ngIf="selectedCountry" class="country-details">
+        <h3>{{ selectedCountry.name }}</h3>
+        <table>
+          <tr>
+            <td>Capital:</td>
+            <td>{{ selectedCountry.capital }}</td>
+          </tr>
+          <tr>
+            <td>Region:</td>
+            <td>{{ selectedCountry.region }}</td>
+          </tr>
+          <tr>
+            <td>Income Level:</td>
+            <td>{{ selectedCountry.incomeLevel }}</td>
+          </tr>
+          <tr>
+            <td>Latitude:</td>
+            <td>{{ selectedCountry.latitude }}</td>
+          </tr>
+          <tr>
+            <td>Longitutde:</td>
+            <td>{{ selectedCountry.longitude }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
